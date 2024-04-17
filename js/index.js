@@ -16,7 +16,7 @@ getHumanChoice = () => {
 
 function playRound(computerChoice, humanChoice) {
 
-    if (computerChoice == humanChoice){
+    if (computerChoice === humanChoice){
         console.log(`It's a tie! You both chose ${computerChoice}!`)
         return;
     }
