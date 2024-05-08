@@ -3,20 +3,9 @@ const choices = ['rock', 'paper', 'scissors'];
 let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
+let results = document.querySelector(".results");
 
 getComputerChoice = () => choices[Math.floor(Math.random() * 3)];
-getHumanChoice = () => {
-    let choice = '';
-
-    // Ask user for input
-    choice = prompt("Rock, paper, or scissors?").toLowerCase();
-
-    // Keep asking until the input is valid
-    while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors')
-        choice = prompt("Invalid input: Rock, paper, or scissors?").toLowerCase();
-
-    return choice;
-}
 
 function playRound(computerChoice, humanChoice) {
 
