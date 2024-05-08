@@ -81,9 +81,6 @@ function checkForWinner() {
         gameActiveContainer.style.display = 'none';
         gameInactiveContainer.style.display = 'block';
 
-        humanScore = 0;
-        computerScore = 0;
-
         score.innerText = '';
         roundResults.innerText = '';
 
@@ -91,6 +88,9 @@ function checkForWinner() {
             gameResults.innerText = 'You win!!!';
         else
             gameResults.innerText = 'You lose :(';
+
+        humanScore = 0;
+        computerScore = 0;
     }
 }
 
