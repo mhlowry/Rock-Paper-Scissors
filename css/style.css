@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #fcb17b;
+    color: #474340;
+}
+
+h1 {
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+
+button {
+    background-color: blanchedalmond;
+    height: 3rem;
+    width: 7rem;
+    border: .1px 5rem solid black;
+    border-radius: 10%;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.game-inactive {
+    display: none;
+}
+
+.best-to-5 {
+    margin-top: 0;
+}
