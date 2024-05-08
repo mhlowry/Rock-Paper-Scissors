@@ -3,8 +3,12 @@ const choices = ['rock', 'paper', 'scissors'];
 let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
-let results = document.querySelector(".result");
+let roundResults = document.querySelector(".round-result");
+let gameResults = document.querySelector(".game-results");
 let score = document.querySelector(".score");
+let buttonContainer = document.querySelector(".button-container");
+let gameActiveContainer = document.querySelector(".game-active");
+let gameInactiveContainer = document.querySelector(".game-inactive");
 
 let computerScore = 0;
 let humanScore = 0;
@@ -14,7 +18,7 @@ getComputerChoice = () => choices[Math.floor(Math.random() * 3)];
 function playRound(computerChoice, humanChoice) {
 
     if (computerChoice === humanChoice){
-        results.innerText = `It's a tie! You both chose ${computerChoice}!`;
+        roundResults.innerText = `It's a tie! You both chose ${computerChoice}!`;
         return;
     }
     
@@ -22,11 +26,11 @@ function playRound(computerChoice, humanChoice) {
         case 'rock':
             switch(computerChoice) {
                 case 'paper':
-                    results.innerText = "Computer chose paper. You lose!";
+                    roundResults.innerText = "Computer chose paper. You lose!";
                     computerScore++;
                     break;
                 case 'scissors':
-                    results.innerText = "Computer chose scissors. You win!";
+                    roundResults.innerText = "Computer chose scissors. You win!";
                     humanScore++;
                     break;
             }
@@ -34,11 +38,11 @@ function playRound(computerChoice, humanChoice) {
         case 'paper':
             switch(computerChoice) {
                 case 'rock':
-                    results.innerText = "Computer chose rock. You win!";
+                    roundResults.innerText = "Computer chose rock. You win!";
                     humanScore++;
                     break;
                 case 'scissors':
-                    results.innerText = "Computer chose scissors. You lose!";
+                    roundResults.innerText = "Computer chose scissors. You lose!";
                     computerScore++;
                     break;
             }
@@ -46,11 +50,11 @@ function playRound(computerChoice, humanChoice) {
         case 'scissors':
             switch(computerChoice) {
                 case 'paper':
-                    results.innerText = "Computer chose paper. You win!";
+                    roundResults.innerText = "Computer chose paper. You win!";
                     humanScore++;
                     break;
                 case 'rock':
-                    results.innerText = "Computer chose rock. You lose!";
+                    roundResults.innerText = "Computer chose rock. You lose!";
                     computerScore++;
                     break;
             }
@@ -63,6 +67,19 @@ function playRound(computerChoice, humanChoice) {
 
 function tallyScore() {
     score.innerText = `Computer: ${computerScore}\nHuman: ${humanScore}`
+    checkForWinner();
+}
+
+function checkForWinner() {
+    if (humanScore === 5 || computerScore === 5) {
+        gameActiveContainer.style.display = 'none';
+        gameInactiveContainer.style.display = 'block';
+
+        if (humanScore > computerScore)
+            gameResults.innerText = 'You win!!!';
+        else
+            gameResults.innerText = 'You lose :(';
+    }
 }
 
 rock.addEventListener("click", () => {
