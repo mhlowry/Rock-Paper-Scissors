@@ -4,6 +4,7 @@ let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
 let results = document.querySelector(".result");
+let score = document.querySelector(".score");
 
 let computerScore = 0;
 let humanScore = 0;
@@ -26,7 +27,7 @@ function playRound(computerChoice, humanChoice) {
                     break;
                 case 'scissors':
                     results.innerText = "Computer chose scissors. You win!";
-                    playerScore++;
+                    humanScore++;
                     break;
             }
             break;
@@ -34,7 +35,7 @@ function playRound(computerChoice, humanChoice) {
             switch(computerChoice) {
                 case 'rock':
                     results.innerText = "Computer chose rock. You win!";
-                    playerScore++;
+                    humanScore++;
                     break;
                 case 'scissors':
                     results.innerText = "Computer chose scissors. You lose!";
@@ -46,7 +47,7 @@ function playRound(computerChoice, humanChoice) {
             switch(computerChoice) {
                 case 'paper':
                     results.innerText = "Computer chose paper. You win!";
-                    playerScore++;
+                    humanScore++;
                     break;
                 case 'rock':
                     results.innerText = "Computer chose rock. You lose!";
@@ -57,10 +58,11 @@ function playRound(computerChoice, humanChoice) {
         default:
             console.error("Something has gone very wrong.");
     }
+    tallyScore();
 }
 
-function playGame() {
-    playRound(getComputerChoice(), getHumanChoice());
+function tallyScore() {
+    score.innerText = `Computer: ${computerScore}\nHuman: ${humanScore}`
 }
 
 rock.addEventListener("click", () => {
