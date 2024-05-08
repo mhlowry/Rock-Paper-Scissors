@@ -1,11 +1,17 @@
 const choices = ['rock', 'paper', 'scissors'];
 
+// buttons
 let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
+let playAgain = document.querySelector(".play-again")
+
+// text
 let roundResults = document.querySelector(".round-result");
 let gameResults = document.querySelector(".game-results");
 let score = document.querySelector(".score");
+
+// div containers
 let buttonContainer = document.querySelector(".button-container");
 let gameActiveContainer = document.querySelector(".game-active");
 let gameInactiveContainer = document.querySelector(".game-inactive");
@@ -75,6 +81,12 @@ function checkForWinner() {
         gameActiveContainer.style.display = 'none';
         gameInactiveContainer.style.display = 'block';
 
+        humanScore = 0;
+        computerScore = 0;
+
+        score.innerText = '';
+        roundResults.innerText = '';
+
         if (humanScore > computerScore)
             gameResults.innerText = 'You win!!!';
         else
@@ -92,4 +104,9 @@ paper.addEventListener("click", () => {
 
 scissors.addEventListener("click", () => {
     playRound(getComputerChoice(), "scissors");
+});
+
+playAgain.addEventListener("click", () => {
+    gameInactiveContainer.style.display = 'none';
+    gameActiveContainer.style.display = 'block';
 });
