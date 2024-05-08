@@ -1,5 +1,9 @@
 const choices = ['rock', 'paper', 'scissors'];
 
+let rock = document.querySelector(".rock");
+let paper = document.querySelector(".paper");
+let scissors = document.querySelector(".scissors");
+
 getComputerChoice = () => choices[Math.floor(Math.random() * 3)];
 getHumanChoice = () => {
     let choice = '';
@@ -59,9 +63,17 @@ function playRound(computerChoice, humanChoice) {
 }
 
 function playGame() {
-    for (let i = 0; i < 5; i++) {
-        playRound(getComputerChoice(), getHumanChoice());
-    }
+    playRound(getComputerChoice(), getHumanChoice());
 }
 
-playGame();
+rock.addEventListener("click", () => {
+    playRound(getComputerChoice(), "rock");
+});
+
+paper.addEventListener("click", () => {
+    playRound(getComputerChoice(), "paper");
+});
+
+scissors.addEventListener("click", () => {
+    playRound(getComputerChoice(), "scissors");
+});
