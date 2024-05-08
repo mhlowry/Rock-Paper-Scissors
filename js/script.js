@@ -3,46 +3,54 @@ const choices = ['rock', 'paper', 'scissors'];
 let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
-let results = document.querySelector(".results");
+let results = document.querySelector(".result");
+
+let computerScore = 0;
+let humanScore = 0;
 
 getComputerChoice = () => choices[Math.floor(Math.random() * 3)];
 
 function playRound(computerChoice, humanChoice) {
 
     if (computerChoice === humanChoice){
-        console.log(`It's a tie! You both chose ${computerChoice}!`)
+        results.innerText = `It's a tie! You both chose ${computerChoice}!`;
         return;
     }
-        
     
     switch(humanChoice) {
         case 'rock':
             switch(computerChoice) {
                 case 'paper':
-                    console.log("Computer chose paper. You lose!");
+                    results.innerText = "Computer chose paper. You lose!";
+                    computerScore++;
                     break;
                 case 'scissors':
-                    console.log("Computer chose scissors. You win!");
+                    results.innerText = "Computer chose scissors. You win!";
+                    playerScore++;
                     break;
             }
             break;
         case 'paper':
             switch(computerChoice) {
                 case 'rock':
-                    console.log("Computer chose rock. You win!");
+                    results.innerText = "Computer chose rock. You win!";
+                    playerScore++;
                     break;
                 case 'scissors':
-                    console.log("Computer chose scissors. You lose!");
+                    results.innerText = "Computer chose scissors. You lose!";
+                    computerScore++;
                     break;
             }
             break;
         case 'scissors':
             switch(computerChoice) {
                 case 'paper':
-                    console.log("Computer chose paper. You win!");
+                    results.innerText = "Computer chose paper. You win!";
+                    playerScore++;
                     break;
                 case 'rock':
-                    console.log("Computer chose rock. You lose!");
+                    results.innerText = "Computer chose rock. You lose!";
+                    computerScore++;
                     break;
             }
             break;
